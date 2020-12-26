@@ -34,7 +34,7 @@ with tempfile.TemporaryFile(mode='w+b') as temp_file:
             number = item.strip().split(':')[1]
             break
     if found:
-        print("password has been cracked : {} times. So CHANGE IT !! ".format(number))
+        print("This password has been breached : {} times. So CHANGE IT !! ".format(number))
     else:
         print("cool! your password is safe so far !! No need to worry i havent posted it anywhere online.")
 
