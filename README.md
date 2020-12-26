@@ -26,6 +26,6 @@ it also outputs the following
 target url : https://api.pwnedpasswords.com/range/70CCD
 SHA-1 hash to be looked for: 9007338D6D81DD3B6271621B9CF9A97EA00
 ```
-so that you can check it manually as well to double check.
+so that you can check it manually as well, just to double check.
 
 
