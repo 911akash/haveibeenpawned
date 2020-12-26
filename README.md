@@ -3,7 +3,7 @@
 This repo provides a safe way to check if your password has been breached before.
 it is powered by https://haveibeenpwned.com/
 
-It is not recommended to provide the full hash of your password to check if it has been leaked. As you might leak it while checking whether it's been leaked !.
+It is not recommended to provide the full hash of your password to check if it has been leaked. As you might leak it while checking for the same !.
 Hence this script uses  [search by range](https://haveibeenpwned.com/API/v3#SearchingPwnedPasswordsByRange) and then match it locally in memory.
 
 ## Requirements
