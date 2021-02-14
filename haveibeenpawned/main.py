@@ -1,17 +1,24 @@
-
+import os
 import sys
 import hashlib
 import argparse
 import urllib.request
 import tempfile
+import logging.config
 
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..'))
+import logging_util
+
+logger = logging.getLogger(__name__)
 
 def _req(target_url):
+    logger.debug('target_url: {}'.format(target_url))
     return urllib.request.urlopen(target_url)
 
 def target_url(sha_hex):
     first5 = sha_hex[0:5].upper()
     target_url = "https://api.pwnedpasswords.com/range/{}".format(first5)
+    logger.debug('target_url: {}'.format(target_url))
     return _req(target_url) , target_url
 
 def get_sha_digest(password):
@@ -31,6 +38,7 @@ def match_no_match(ret, sha_hex):
             if sha_hex[5:].upper() == item.strip().split(':')[0].upper():
                 found = True
                 number = item.strip().split(':')[1]
+                logger.debug('match found')
                 break
         if found:
             return True, number
@@ -39,10 +47,11 @@ def match_no_match(ret, sha_hex):
 
 def get_argument_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('password', help='give password as positional parameter in string without quotes')
+    parser.add_argument('password', help='give password as positional parameter in string without quotes', default='test')
     return parser 
 
 def main(args):
+    logger.debug('target_url')
     args = get_argument_parser().parse_args(args)
     input_str = args.password
     # get SHA1 hash
@@ -54,7 +63,6 @@ def main(args):
 
     ret = ret.read()
     #match , no-match
-    print(type(ret))
     found, num = match_no_match(ret, sha_hex)
     print("************************************************************************")
     if found:
