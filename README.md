@@ -12,11 +12,11 @@ it requires python3 to be installed.
 ## Usage
 clone the repo and run the following command:
 
-`python3 pawned.py <your-password>`
+`python3 tools/pawned.py <your-password>`
 
 ## Example
 ```
-python3 .\pawned.py Password1
+python3 tools\pawned.py Password1
 checking.......
 password has been cracked : 139705 times. So CHANGE IT !! 
 ```
@@ -28,4 +28,8 @@ SHA-1 hash to be looked for: 9007338D6D81DD3B6271621B9CF9A97EA00
 ```
 so that you can check it manually as well, just to double check.
 
-
+## Unit test
+on root folder run 
+```
+pytest
+```
