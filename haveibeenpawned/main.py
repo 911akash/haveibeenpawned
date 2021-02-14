@@ -64,3 +64,6 @@ def main(args):
     print("************************************************************************")
     print("target url : {}".format(targeturl))
     print("SHA-1 hash to be looked for: {}".format(sha_hex[5:].upper()))
+
+if __name__ == '__main__':
+    main(sys.argv[1:])
