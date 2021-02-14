@@ -1,0 +1,7 @@
+pytest
+pytest_flake8
+pytest-cov
+pytest-mock
+mock
+open-mock-file
+mocket
